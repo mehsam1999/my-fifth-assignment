@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Bangladesh</title>
+    <!-- Tailwind + DaisyUI installation -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome link -->
+    <script src="https://kit.fontawesome.com/b4570e01d2.js" crossorigin="anonymous"></script>
+    <!-- Google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        .font-lexend{
+            font-family: "Lexend", sans-serif;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                  colors: {
+                    'bg-navbar': 'rgb(249, 247, 243)',
+                    'green':'rgb(180, 244, 97)',
+                    'more-lit-green':'rgba(171, 239, 95, 0.2)',
+                    'p-text': 'rgba(17, 17, 17, 0.7)',
+                  }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="bg-bg-navbar backdrop-blur-lg bg-opacity-80">
+            <div class="navbar md:container mx-auto">
+                <div class="navbar-start">
+                    <button id="blog" class="btn bg-green hover:bg-more-lit-green text-xs lg:text-xl">Home</button>
+                </div>
+                <div class="navbar-center">
+                    <a class="btn btn-ghost">
+                        <img src="assets/logo.png" alt="" class="w-[1rem] h-[1rem] lg:w-[2rem] lg:h-[2rem]">
+                        <p class="text-xs lg:text-2xl font-extrabold">Donate Bangladesh</p>
+                    </a>
+                </div>
+                <div class="navbar-end">
+                    <a class="btn btn-ghost">
+                        <img src="assets/coin.png" alt="" class="w-[1rem] h-[1rem] lg:w-[2rem] lg:h-[2rem]">
+                        <p id="balance" class="text-xs lg:text-2xl">55000 </p>
+                        <p class="text-xs lg:text-2xl">BDT</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+    </main>
+    <!-- <footer class="bg-bg-navbar py-10 lg:py-20"> 
+    </footer> -->
+</body>
+</html>
