@@ -4,7 +4,7 @@ function getHtmlByLocation(id){
         window.location.href = './home.html';
 })
 }
-const home = getHtmlByLocation('blog');
+const blog = getHtmlByLocation('blog');
 // donation value
 function getValueById(id) {
     let inputDonation = parseFloat(document.getElementById(id).value);
@@ -15,8 +15,43 @@ function getInnerNumberById(id) {
     let number = parseFloat(document.getElementById(id).innerText);
     return parseFloat(number.toFixed(2));
 }
+//classList.add()
+function add(id){
+    return document.getElementById(id).classList.add('hidden');
+}
+//classList.remove()
+function remove(id){
+    return document.getElementById(id).classList.remove('hidden');
+}
+//createHistory
+function createHistory(donationAmount,destination){
+    const historyElement = document.createElement('div');
+    historyElement.className = "md:container mx-auto bg-base-100 rounded-lg p-5 border-2 space-y-2 my-10"
+    historyElement.innerHTML = `
+        <p class="font-bold">${donationAmount} Taka is Donated for Donate for ${destination}</p>
+        <div class="bg-gray-100 rounded-lg p-3">
+            <p>Date: ${new Date().toString()}</p>
+        </div>
+    `
+    const historySection = document.getElementById('history-sections');
+    historySection.appendChild(historyElement)
 
-// Add listener to the donation button
+}
+//toggle between donation and history
+function toggle(activeTab, inactiveTab, id1, id2, footerVisibility) {
+    activeTab.classList.add("bg-green");
+    inactiveTab.classList.remove("bg-green");
+
+    document.getElementById(id1).classList.remove('hidden');
+    document.getElementById(id2).classList.add('hidden');
+
+    if (footerVisibility) {
+        document.getElementById('footer').classList.remove('hidden');
+    } else {
+        document.getElementById('footer').classList.add('hidden');
+    }
+}
+// Add listener to btn-noakhali
 const calculateDonationNoakhali = document.getElementById('btn-noakhali').addEventListener('click', function () {
     const donationAmountOne = getValueById('amount-noakhali');
     const donationAmountNoakhali = getInnerNumberById('donation-noakhali');
@@ -24,35 +59,23 @@ const calculateDonationNoakhali = document.getElementById('btn-noakhali').addEve
 
     if(donationAmountOne <= 0 || isNaN(donationAmountOne)){
         alert('Invalid Donation Amount')
-        document.getElementById('my_modal_1').classList.add('hidden');
+        add('my_modal_1')
         return;
     }
-
 
     const totalDonationNoakhali = donationAmountNoakhali + donationAmountOne;
     const remainingBalance = mainBalance - donationAmountOne;
 
     if(donationAmountOne > mainBalance){
-        alert('Insufficient Coins');
-        document.getElementById('my_modal_1').classList.add('hidden');
+        alert('Insufficient Balance');
+        add('my_modal_1')
         return;
     }
-
 
     document.getElementById('donation-noakhali').innerText = totalDonationNoakhali.toFixed(2);
     document.getElementById('balance').innerText = remainingBalance.toFixed(2);
     
-    const historyElement = document.createElement('div');
-    historyElement.className = "md:container mx-auto bg-base-100 rounded-lg p-5 border-2 space-y-2 my-10";
-    historyElement.innerHTML = `
-        <p class="font-bold">${donationAmountOne} Taka is Donated for Donate for Flood at Noakhali, Bangladesh</p>
-        <div class="bg-gray-100 rounded-lg p-3">
-            <p >Date: ${new Date().toString()}</p>
-        </div>
-    `;
-
-    const historySection = document.getElementById('history-sections');
-    historySection.appendChild(historyElement);
+    createHistory(donationAmountOne, 'Noakhali, Bangladesh');
 });
 
 // addLisener add to btn-feni
@@ -63,7 +86,7 @@ const calculateDonationFeni = document.getElementById('btn-feni').addEventListen
 
     if(donationAmountTwo <= 0 || isNaN(donationAmountTwo)){
         alert('Invalid Donation Amount')
-        document.getElementById('my_modal_2').classList.add('hidden');
+        add('my_modal_2');
         return;
     }
 
@@ -71,24 +94,15 @@ const calculateDonationFeni = document.getElementById('btn-feni').addEventListen
     const remainingBalance = mainBalance - donationAmountTwo;
 
     if(donationAmountTwo > mainBalance){
-        alert('Insufficient Coins');
-        document.getElementById('my_modal_2').classList.add('hidden');
+        alert('Insufficient Balance');
+        add('my_modal_2');
         return;
     }
 
     document.getElementById('donation-feni').innerText = totalDonationFeni.toFixed(2);
     document.getElementById('balance').innerText = remainingBalance.toFixed(2);
 
-    const historyElement = document.createElement('div');
-    historyElement.className = "md:container mx-auto bg-base-100 rounded-lg p-5 border-2 space-y-2 my-10"
-    historyElement.innerHTML = `
-        <p class="font-bold">${donationAmountTwo} Taka is Donated for Donate for Flood at Feni, Bangladesh</p>
-        <div class="bg-gray-100 rounded-lg p-3">
-            <p>Date:Date: ${new Date().toString()}</p>
-        </div>
-    `
-    const historySection = document.getElementById('history-sections');
-    historySection.appendChild(historyElement, historySection.firstChild)
+    createHistory(donationAmountTwo, 'Feni, Bangladesh');
 })
 // addLisener add to btn-quota
 const calculateDonationQuota = document.getElementById('btn-quota').addEventListener('click',function(){
@@ -98,7 +112,7 @@ const calculateDonationQuota = document.getElementById('btn-quota').addEventList
 
     if(donationAmountThree <= 0 || isNaN(donationAmountThree)){
         alert('Invalid Donation Amount');
-        document.getElementById('my_modal_3').classList.add('hidden');
+        add('my_modal_3');
         return;
     }
 
@@ -106,39 +120,24 @@ const calculateDonationQuota = document.getElementById('btn-quota').addEventList
     const remainingBalance = mainBalance - donationAmountThree;
 
     if(donationAmountThree > mainBalance){
-        alert('Insufficient Coins');
-        document.getElementById('my_modal_3').classList.add('hidden');
+        alert('Insufficient Balance');
+        add('my_modal_3');
         return;
     }
 
     document.getElementById('donation-quota').innerText = totalDonationQuota.toFixed(2);
     document.getElementById('balance').innerText = remainingBalance.toFixed(2);
 
-    const historyElement = document.createElement('div');
-    historyElement.className = "md:container mx-auto bg-base-100 rounded-lg p-5 border-2 space-y-2 my-10"
-    historyElement.innerHTML = `
-        <p class="font-bold">${donationAmountThree} Taka is Donated for Donate for Aid for Injured in the Quota Movement July 2024</p>
-        <div class="bg-gray-100 rounded-lg p-3">
-            <p>Date:Date: ${new Date().toString()}</p>
-        </div>
-    `
-    const historySection = document.getElementById('history-sections');
-    historySection.appendChild(historyElement, historySection.firstChild)
+    createHistory(donationAmountThree, 'Aid for Injured in the Quota Movement July 2024');
+    
 })
 // donation , history color change by click
 const historyTab = document.getElementById('history');
 const donationTab = document.getElementById('donation');
-historyTab.addEventListener('click', function(){
-    historyTab.classList.add("bg-green");
-    donationTab.classList.remove("bg-green");
-    document.getElementById('donation-sections').classList.add('hidden')
-    document.getElementById('footer').classList.add('hidden')
-    document.getElementById('history-sections').classList.remove('hidden')
-})
-donationTab.addEventListener('click', function(){
-    historyTab.classList.remove("bg-green");
-    donationTab.classList.add("bg-green");
-    document.getElementById('donation-sections').classList.remove('hidden')
-    document.getElementById('footer').classList.remove('hidden')
-    document.getElementById('history-sections').classList.add('hidden')
-})
+historyTab.addEventListener('click', function() {
+    toggle(historyTab, donationTab, 'history-sections', 'donation-sections', false);
+});
+
+donationTab.addEventListener('click', function() {
+    toggle(donationTab, historyTab, 'donation-sections', 'history-sections', true);
+});
