@@ -1,7 +1,7 @@
 // blog to home page navigation
 function getHtmlByLocation(id){
     return document.getElementById(id).addEventListener('click',function(){
-        window.location.href = '/home.html';
+        window.location.href = './home.html';
 })
 }
 const home = getHtmlByLocation('blog');
