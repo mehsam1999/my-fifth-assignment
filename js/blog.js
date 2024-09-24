@@ -15,23 +15,6 @@ function getInnerNumberById(id) {
     let number = parseFloat(document.getElementById(id).innerText);
     return parseFloat(number.toFixed(2));
 }
-// update day, time, timeZone for history tab
-function updateDate(date) {
-    const updateOptions = {
-        weekday: 'short',
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true,
-        timeZoneName: 'long' 
-    };
-
-    return date.toLocaleString('en-US', updateOptions);
-}
-
 
 // Add listener to the donation button
 const calculateDonationNoakhali = document.getElementById('btn-noakhali').addEventListener('click', function () {
@@ -39,21 +22,32 @@ const calculateDonationNoakhali = document.getElementById('btn-noakhali').addEve
     const donationAmountNoakhali = getInnerNumberById('donation-noakhali');
     const mainBalance = getInnerNumberById('balance');
 
+    if(donationAmountOne <= 0 || isNaN(donationAmountOne)){
+        alert('Invalid Donation Amount')
+        document.getElementById('my_modal_1').classList.add('hidden');
+        return;
+    }
+
+
     const totalDonationNoakhali = donationAmountNoakhali + donationAmountOne;
     const remainingBalance = mainBalance - donationAmountOne;
 
+    if(donationAmountOne > mainBalance){
+        alert('Insufficient Coins');
+        document.getElementById('my_modal_1').classList.add('hidden');
+        return;
+    }
+
+
     document.getElementById('donation-noakhali').innerText = totalDonationNoakhali.toFixed(2);
     document.getElementById('balance').innerText = remainingBalance.toFixed(2);
-
-    const presentDate = new Date();
-    const reformDateNoakhali = updateDate(presentDate);
-
+    
     const historyElement = document.createElement('div');
     historyElement.className = "md:container mx-auto bg-base-100 rounded-lg p-5 border-2 space-y-2 my-10";
     historyElement.innerHTML = `
         <p class="font-bold">${donationAmountOne} Taka is Donated for Donate for Flood at Noakhali, Bangladesh</p>
         <div class="bg-gray-100 rounded-lg p-3">
-            <p id="date-time">${reformDateNoakhali}</p>
+            <p >Date: ${new Date().toString()}</p>
         </div>
     `;
 
@@ -66,19 +60,31 @@ const calculateDonationFeni = document.getElementById('btn-feni').addEventListen
     const donationAmountTwo = getValueById('amount-feni');
     const donationAmountFeni = getInnerNumberById('donation-feni')
     const mainBalance = getInnerNumberById('balance')
+
+    if(donationAmountTwo <= 0 || isNaN(donationAmountTwo)){
+        alert('Invalid Donation Amount')
+        document.getElementById('my_modal_2').classList.add('hidden');
+        return;
+    }
+
     const totalDonationFeni = donationAmountFeni + donationAmountTwo ;
     const remainingBalance = mainBalance - donationAmountTwo;
+
+    if(donationAmountTwo > mainBalance){
+        alert('Insufficient Coins');
+        document.getElementById('my_modal_2').classList.add('hidden');
+        return;
+    }
+
     document.getElementById('donation-feni').innerText = totalDonationFeni.toFixed(2);
     document.getElementById('balance').innerText = remainingBalance.toFixed(2);
 
-    const presentDate = new Date();
-    const reformDateFeni = updateDate(presentDate);
     const historyElement = document.createElement('div');
     historyElement.className = "md:container mx-auto bg-base-100 rounded-lg p-5 border-2 space-y-2 my-10"
     historyElement.innerHTML = `
         <p class="font-bold">${donationAmountTwo} Taka is Donated for Donate for Flood at Feni, Bangladesh</p>
         <div class="bg-gray-100 rounded-lg p-3">
-            <p>Date: ${reformDateFeni}</p>
+            <p>Date:Date: ${new Date().toString()}</p>
         </div>
     `
     const historySection = document.getElementById('history-sections');
@@ -89,19 +95,31 @@ const calculateDonationQuota = document.getElementById('btn-quota').addEventList
     const donationAmountThree = getValueById('amount-quota');
     const donationAmountQuota = getInnerNumberById('donation-quota')
     const mainBalance = getInnerNumberById('balance')
+
+    if(donationAmountThree <= 0 || isNaN(donationAmountThree)){
+        alert('Invalid Donation Amount');
+        document.getElementById('my_modal_3').classList.add('hidden');
+        return;
+    }
+
     const totalDonationQuota = donationAmountQuota + donationAmountThree ;
     const remainingBalance = mainBalance - donationAmountThree;
+
+    if(donationAmountThree > mainBalance){
+        alert('Insufficient Coins');
+        document.getElementById('my_modal_3').classList.add('hidden');
+        return;
+    }
+
     document.getElementById('donation-quota').innerText = totalDonationQuota.toFixed(2);
     document.getElementById('balance').innerText = remainingBalance.toFixed(2);
 
-    const presentDate = new Date();
-    const reformDateQuota = updateDate(presentDate);
     const historyElement = document.createElement('div');
     historyElement.className = "md:container mx-auto bg-base-100 rounded-lg p-5 border-2 space-y-2 my-10"
     historyElement.innerHTML = `
         <p class="font-bold">${donationAmountThree} Taka is Donated for Donate for Aid for Injured in the Quota Movement July 2024</p>
         <div class="bg-gray-100 rounded-lg p-3">
-            <p>Date: ${reformDateQuota}</p>
+            <p>Date:Date: ${new Date().toString()}</p>
         </div>
     `
     const historySection = document.getElementById('history-sections');
@@ -116,4 +134,11 @@ historyTab.addEventListener('click', function(){
     document.getElementById('donation-sections').classList.add('hidden')
     document.getElementById('footer').classList.add('hidden')
     document.getElementById('history-sections').classList.remove('hidden')
+})
+donationTab.addEventListener('click', function(){
+    historyTab.classList.remove("bg-green");
+    donationTab.classList.add("bg-green");
+    document.getElementById('donation-sections').classList.remove('hidden')
+    document.getElementById('footer').classList.remove('hidden')
+    document.getElementById('history-sections').classList.add('hidden')
 })

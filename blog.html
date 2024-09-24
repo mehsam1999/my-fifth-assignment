@@ -43,13 +43,13 @@
                     <button id="blog" class="btn bg-green hover:bg-more-lit-green text-xs lg:text-xl">Blog</button>
                 </div>
                 <div class="navbar-center">
-                    <a class="btn btn-ghost">
+                    <a class="flex gap-2">
                         <img src="assets/logo.png" alt="" class="w-[1rem] h-[1rem] lg:w-[2rem] lg:h-[2rem] hidden lg:flex">
                         <p class="text-xs lg:text-2xl font-extrabold">Donate Bangladesh</p>
                     </a>
                 </div>
                 <div class="navbar-end">
-                    <a class="btn btn-ghost">
+                    <a class="flex gap-2">
                         <img src="assets/coin.png" alt="" class="w-[1rem] h-[1rem] lg:w-[2rem] lg:h-[2rem]">
                         <p id="balance" class="text-xs lg:text-2xl">55000 </p>
                         <p class="text-xs lg:text-2xl">BDT</p>
@@ -82,7 +82,23 @@
                     <p class="text-p-text text-xs lg:text-[1rem] lg:leading-6"> The recent floods in Noakhali have caused significant damage to homes  infrastructure. Your donation will help provide essential supplies and  to those affected by this disaster. Every contribution, big or small, makes  difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.
                     </p>
                     <input id="amount-noakhali" type="text" placeholder="Write Donation Amount" class="input input-bordered w-full text-xs lg:text-[1rem]" />
-                    <button id="btn-noakhali" class="btn bg-green text-xs lg:text-xl w-full">Donation</button>
+                    <button id="btn-noakhali" onclick="my_modal_1.showModal()" class="btn bg-green text-xs lg:text-xl w-full">Donation</button>
+                    <!-- Open the modal using ID.showModal() method -->
+                    
+                    <dialog id="my_modal_1" class="modal">
+                    <div class="modal-box">
+                        <h3 class="text-3xl font-bold text-center">Congrats!</h3>
+                        <div class="flex items-center justify-center py-4"><img src="assets/coin.png" alt=""></div>
+                        <p class="py-4 text-center">You Have Donated for HumanKind</p>
+                        <p class="text-center font-bold text-xl">Successfully</p>
+                        <div class="modal-action flex items-center justify-center">
+                            <form method="dialog">
+                                <!-- if there is a button in form, it will close the modal -->
+                                <button class="btn">Close confirmation</button>
+                            </form>
+                        </div>
+                    </div>
+                    </dialog>
                 </div>
             </div>
             <!-- feni -->
@@ -100,7 +116,21 @@
                     <p class="text-p-text text-xs lg:text-[1rem] lg:leading-6"> The recent floods in Feni have devastated local communities, leading to severe disruption and loss. Your generous donation will help provide immediate aid, including food, clean water, and medical supplies, to those affected by this calamity. Together, we can offer crucial support and help rebuild lives in the aftermath of this disaster. Every contribution counts towards making a real difference. Please consider donating today to assist those in urgent need.
                     </p>
                     <input id="amount-feni" type="text" placeholder="Write Donation Amount" class="input input-bordered w-full text-xs lg:text-[1rem]" />
-                    <button id="btn-feni" class="btn bg-green text-xs lg:text-xl w-full">Donation</button>
+                    <button id="btn-feni" onclick="my_modal_2.showModal()" class="btn bg-green text-xs lg:text-xl w-full">Donation</button>
+                    <dialog id="my_modal_2" class="modal">
+                        <div class="modal-box">
+                            <h3 class="text-3xl font-bold text-center">Congrats!</h3>
+                            <div class="flex items-center justify-center py-4"><img src="assets/coin.png" alt=""></div>
+                            <p class="py-4 text-center">You Have Donated for HumanKind</p>
+                            <p class="text-center font-bold text-xl">Successfully</p>
+                            <div class="modal-action flex items-center justify-center">
+                                <form method="dialog">
+                                    <!-- if there is a button in form, it will close the modal -->
+                                    <button class="btn">Close confirmation</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
                 </div>
             </div>
             <!-- Quota Movement -->
@@ -118,7 +148,21 @@
                     <p class="text-p-text text-xs lg:text-[1rem] lg:leading-6"> The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that injured individuals receive the care and support they need during this challenging time. Every donation plays a vital role in alleviating their suffering and aiding in their recovery. Please consider making a donation to support these brave individuals in their time of need.
                     </p>
                     <input id="amount-quota" type="text" placeholder="Write Donation Amount" class="input input-bordered w-full text-xs lg:text-[1rem]" />
-                    <button id="btn-quota" class="btn bg-green text-xs lg:text-xl w-full">Donation</button>
+                    <button id="btn-quota" onclick="my_modal_3.showModal()" class="btn bg-green text-xs lg:text-xl w-full">Donation</button>
+                    <dialog id="my_modal_3" class="modal">
+                        <div class="modal-box">
+                            <h3 class="text-3xl font-bold text-center">Congrats!</h3>
+                            <div class="flex items-center justify-center py-4"><img src="assets/coin.png" alt=""></div>
+                            <p class="py-4 text-center">You Have Donated for HumanKind</p>
+                            <p class="text-center font-bold text-xl">Successfully</p>
+                            <div class="modal-action flex items-center justify-center">
+                                <form method="dialog">
+                                    <!-- if there is a button in form, it will close the modal -->
+                                    <button class="btn">Close confirmation</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
                 </div>
             </div>
         </div>
