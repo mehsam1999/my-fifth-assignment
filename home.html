@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate Bangladesh</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
     <!-- Tailwind + DaisyUI installation -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -57,35 +58,39 @@
         </nav>
     </header>
     <main class="md:container mx-auto py-10">
+      <div class="px-4">
         <h1 class="font-bold text-5xl">Important FAQ <i class="fa-regular fa-circle-question"></i></h1>
         <div class="collapse collapse-arrow bg-base-50 border-2 rounded-lg mt-20">
             <input type="radio" name="my-accordion-2" checked="checked" />
             <div class="collapse-title text-xl font-medium">What is the Document Object Model (DOM)?</div>
             <div class="collapse-content">
-              <p>hello</p>
+              <p>An HTML page is structuredly represented as a tree of objects by the page Object Model (DOM), which enables scripts to dynamically access and modify the document's content, structure, and styles. All of the document's elements become nodes in this tree, allowing for programmatic interaction with the document's structure. It serves as a link between dynamic updates on web pages and computer languages such as JavaScript.</p>
             </div>
           </div>
           <div class="collapse collapse-arrow bg-base-50 border-2 rounded-lg">
             <input type="radio" name="my-accordion-2" />
             <div class="collapse-title text-xl font-medium">How do you select an element from the DOM?</div>
             <div class="collapse-content">
-              <p>hello</p>
+              <p>Methods such as document can be used to select an element from the DOM. Find the first element or document that matches using querySelector(), querySelectorAll() for multiple CSS selector-based matches. Additional methods for class-based selects include getElementsByClassName() and getElementById() for ID-based selections. These techniques enable precise alteration of document elements.
+              </p>
             </div>
           </div>
           <div class="collapse collapse-arrow bg-base-50 border-2 rounded-lg">
             <input type="radio" name="my-accordion-2" />
             <div class="collapse-title text-xl font-medium">What is event delegation in the context of the DOM, and why is it useful?</div>
             <div class="collapse-content">
-              <p>hello</p>
+              <p>Using event bubbling, event delegation is a DOM method where a single event listener is assigned to a parent element to handle events from its child elements. As a result, fewer listeners are required, which boosts performance—particularly in dynamic or big DOMs. It centralizes event handling, which makes code management easier.
+              </p>
             </div>
           </div>
           <div class="collapse collapse-arrow bg-base-50 border-2 rounded-lg">
             <input type="radio" name="my-accordion-2" />
             <div class="collapse-title text-xl font-medium">How do you manipulate an element's attributes and styles using the DOM?</div>
             <div class="collapse-content">
-              <p>hello</p>
+              <p>`setAttribute()` allows us to add or change an element's attributes, while `getAttribute()` allows us to get them. The `style` property for styles permits direct CSS modifications (e.g., `element.style.color ='red';`). An effective way to add, remove, or toggle CSS classes for stylistic changes is by using `classList} as an alternative.</p>
             </div>
           </div>
+      </div>
     </main>
     <script src="js/home.js"></script>
 </body>

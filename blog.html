@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate Bangladesh</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
     <!-- Tailwind + DaisyUI installation -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -59,12 +60,13 @@
         <!-- banner -->
         <div class="flex items-center justify-center gap-4 lg:gap-10 py-5 lg:py-10">
             <button id="donation" class="btn bg-green text-xs lg:text-xl">Donation</button>
-            <button id="history" class="btn text-xs lg:text-xl">History</button>
+            <button id="history" class="btn bg-gray-200 text-xs lg:text-xl">History</button>
         </div>
         <hr>
     </header>
     <main>
-        <div class="px-4">
+        <!-- donation -->
+        <div id="donation-sections" class="px-4">
             <!-- noakhali -->
             <div class="grid grid-cols-1 lg:grid-cols-12 md:container mx-auto  border-2 rounded-xl p-5 space-y-2 mt-3 lg:mt-12">
                 <div class="col-span-5">
@@ -73,7 +75,7 @@
                 <div class="col-span-7 space-y-4">
                     <a class="btn">
                         <img src="assets/coin.png" alt="" class="w-[1rem] h-[1rem]">
-                        <p id="donation-noakhali" class="text-xs">0</p>
+                        <p id="donation-noakhali" class="text-xs">75000</p>
                         <p class="text-xs">BDT</p>
                     </a>
                     <h1 class="font-bold text-normal lg:text-2xl">Donate for Flood at Noakhali, Bangladesh</h1>
@@ -91,7 +93,7 @@
                 <div class="col-span-7 space-y-3">
                     <a class="btn">
                         <img src="assets/coin.png" alt="" class="w-[1rem] h-[1rem]">
-                        <p id="donation-feni" class="text-xs">600</p>
+                        <p id="donation-feni" class="text-xs">60000</p>
                         <p class="text-xs">BDT</p>
                     </a>
                     <h1 class="font-bold text-normal lg:text-2xl">Donate for Flood Relief in Feni,Bangladesh</h1>
@@ -109,7 +111,7 @@
                 <div class="col-span-7 space-y-3">
                     <a class="btn">
                         <img src="assets/coin.png" alt="" class="w-[1rem] h-[1rem]">
-                        <p id="donation-quota" class="text-xs">2400</p>
+                        <p id="donation-quota" class="text-xs">24000</p>
                         <p class="text-xs">BDT</p>
                     </a>
                     <h1 class="font-bold text-normal lg:text-2xl">Aid for Injured in the Quota Movement</h1>
@@ -120,8 +122,11 @@
                 </div>
             </div>
         </div>
+        <!-- history -->
+         <div id="history-sections" class="px-4 hidden">
+         </div>
     </main>
-    <footer class="bg-bg-navbar py-10 lg:py-20">
+    <footer id="footer" class="bg-bg-navbar py-10 lg:py-20">
     </footer>
     <script src="js/blog.js"></script>
 </body>
