@@ -5,24 +5,19 @@ function getHtmlByLocation(id){
 })
 }
 const blog = getHtmlByLocation('blog');
+
 // donation value
 function getValueById(id) {
     let inputDonation = parseFloat(document.getElementById(id).value);
     return parseFloat(inputDonation.toFixed(2));
 }
+
 // total donation amount and main balance
 function getInnerNumberById(id) {
     let number = parseFloat(document.getElementById(id).innerText);
     return parseFloat(number.toFixed(2));
 }
-//classList.add()
-function add(id){
-    return document.getElementById(id).classList.add('hidden');
-}
-//classList.remove()
-function remove(id){
-    return document.getElementById(id).classList.remove('hidden');
-}
+
 //createHistory
 function createHistory(donationAmount,destination){
     const historyElement = document.createElement('div');
@@ -37,6 +32,7 @@ function createHistory(donationAmount,destination){
     historySection.appendChild(historyElement)
 
 }
+
 //toggle between donation and history
 function toggle(activeTab, inactiveTab, id1, id2, footerVisibility) {
     activeTab.classList.add("bg-green");
@@ -51,6 +47,7 @@ function toggle(activeTab, inactiveTab, id1, id2, footerVisibility) {
         document.getElementById('footer').classList.add('hidden');
     }
 }
+
 // Add listener to btn-noakhali
 const calculateDonationNoakhali = document.getElementById('btn-noakhali').addEventListener('click', function () {
     const donationAmountOne = getValueById('amount-noakhali');
@@ -59,7 +56,7 @@ const calculateDonationNoakhali = document.getElementById('btn-noakhali').addEve
 
     if(donationAmountOne <= 0 || isNaN(donationAmountOne)){
         alert('Invalid Donation Amount')
-        add('my_modal_1')
+        document.getElementById('my_modal_1').close()
         return;
     }
 
@@ -68,7 +65,7 @@ const calculateDonationNoakhali = document.getElementById('btn-noakhali').addEve
 
     if(donationAmountOne > mainBalance){
         alert('Insufficient Balance');
-        add('my_modal_1')
+        document.getElementById('my_modal_1').close()
         return;
     }
 
@@ -86,7 +83,7 @@ const calculateDonationFeni = document.getElementById('btn-feni').addEventListen
 
     if(donationAmountTwo <= 0 || isNaN(donationAmountTwo)){
         alert('Invalid Donation Amount')
-        add('my_modal_2');
+        document.getElementById('my_modal_2').close();
         return;
     }
 
@@ -95,7 +92,7 @@ const calculateDonationFeni = document.getElementById('btn-feni').addEventListen
 
     if(donationAmountTwo > mainBalance){
         alert('Insufficient Balance');
-        add('my_modal_2');
+        document.getElementById('my_modal_2').close()
         return;
     }
 
@@ -112,7 +109,7 @@ const calculateDonationQuota = document.getElementById('btn-quota').addEventList
 
     if(donationAmountThree <= 0 || isNaN(donationAmountThree)){
         alert('Invalid Donation Amount');
-        add('my_modal_3');
+        document.getElementById('my_modal_3').close()
         return;
     }
 
@@ -121,7 +118,7 @@ const calculateDonationQuota = document.getElementById('btn-quota').addEventList
 
     if(donationAmountThree > mainBalance){
         alert('Insufficient Balance');
-        add('my_modal_3');
+        document.getElementById('my_modal_3').close()
         return;
     }
 
